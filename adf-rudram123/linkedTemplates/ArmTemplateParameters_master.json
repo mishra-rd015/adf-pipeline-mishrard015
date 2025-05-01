@@ -5,6 +5,21 @@
 		"factoryName": {
 			"value": "adf-rudram123"
 		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"ProductBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "myserver0987.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "mishra-rd015"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "Rudram"
+		},
 		"containerUri": {
 			"value": ""
 		},
