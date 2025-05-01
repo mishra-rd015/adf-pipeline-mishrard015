@@ -1,0 +1,9 @@
+{
+	"name": "adf-rudram123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fd49bad7-35ae-4fa8-94f5-4645b348f650",
+		"tenantId": "2ab9811e-8172-4cd1-bf22-858c28b732da"
+	}
+}
