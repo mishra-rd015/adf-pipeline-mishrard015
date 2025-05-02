@@ -24,10 +24,29 @@
 			"transformations": [
 				{
 					"name": "JoinTrip"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          medallion as string,",
+				"          hack_license as string,",
+				"          vendor_id as string,",
+				"          pickup_datetime as timestamp,",
+				"          dropoff_datetime as timestamp,",
+				"          passenger_count as short,",
+				"          trip_time_in_secs as short,",
+				"          trip_distance as double,",
+				"          pickup_longitude as double,",
+				"          pickup_latitude as double,",
+				"          dropoff_longitude as double,",
+				"          dropoff_latitude as double,",
+				"          payment_type as string,",
+				"          fare_amount as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> tripdatacsv",
 				"source(output(",
@@ -47,11 +66,16 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> tripfaretable",
-				"tripdatacsv, tripfaretable join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"tripdatacsv, tripfaretable join(tripdatacsv@medallion == tripfaretable@medallion",
+				"     && tripdatacsv@hack_license == tripfaretable@hack_license",
+				"     && tripdatacsv@vendor_id == tripfaretable@vendor_id",
+				"     && tripdatacsv@pickup_datetime == toTimestamp(tripfaretable@pickup_datetime),",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> JoinTrip"
+				"     broadcast: 'auto')~> JoinTrip",
+				"JoinTrip aggregate(groupBy(tripfaretable@payment_type),",
+				"     {average fare} = ERROR_FUNCTION('')) ~> aggregate1"
 			]
 		}
 	}
