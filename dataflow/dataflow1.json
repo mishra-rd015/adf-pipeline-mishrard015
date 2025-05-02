@@ -20,13 +20,21 @@
 					"name": "tripfaretable"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Trip_aggregate_Blob",
+						"type": "DatasetReference"
+					},
+					"name": "tripdatasink"
+				}
+			],
 			"transformations": [
 				{
 					"name": "JoinTrip"
 				},
 				{
-					"name": "aggregate1"
+					"name": "tripdataaggregate1"
 				}
 			],
 			"scriptLines": [
@@ -75,7 +83,12 @@
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinTrip",
 				"JoinTrip aggregate(groupBy(tripfaretable@payment_type),",
-				"     {average fare} = ERROR_FUNCTION('')) ~> aggregate1"
+				"     {average fare} = avg(toInteger(total_amount)),",
+				"          total_trip_dist = sum(toInteger(trip_distance))) ~> tripdataaggregate1",
+				"tripdataaggregate1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> tripdatasink"
 			]
 		}
 	}
