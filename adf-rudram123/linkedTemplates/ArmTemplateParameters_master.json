@@ -11,6 +11,12 @@
 		"ProductBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"TaxTripData_password": {
+			"value": ""
+		},
+		"ADLSTripData_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "myserver0987.database.windows.net"
 		},
@@ -19,6 +25,18 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "Rudram"
+		},
+		"TaxTripData_properties_typeProperties_server": {
+			"value": "myserver0987.database.windows.net"
+		},
+		"TaxTripData_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"TaxTripData_properties_typeProperties_userName": {
+			"value": "Rudram"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"value": "https://tripdata6870.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""

@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ProductBlobStorage1'"
 		},
+		"TaxTripData_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TaxTripData'"
+		},
+		"ADLSTripData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "myserver0987.database.windows.net"
@@ -26,6 +34,22 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Rudram"
+		},
+		"TaxTripData_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "myserver0987.database.windows.net"
+		},
+		"TaxTripData_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "taxi-data"
+		},
+		"TaxTripData_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Rudram"
+		},
+		"ADLSTripData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tripdata6870.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -60,6 +84,12 @@
 					"ProductBlobStorage1_connectionString": {
 						"value": "[parameters('ProductBlobStorage1_connectionString')]"
 					},
+					"TaxTripData_password": {
+						"value": "[parameters('TaxTripData_password')]"
+					},
+					"ADLSTripData_accountKey": {
+						"value": "[parameters('ADLSTripData_accountKey')]"
+					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
 					},
@@ -68,6 +98,18 @@
 					},
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"TaxTripData_properties_typeProperties_server": {
+						"value": "[parameters('TaxTripData_properties_typeProperties_server')]"
+					},
+					"TaxTripData_properties_typeProperties_database": {
+						"value": "[parameters('TaxTripData_properties_typeProperties_database')]"
+					},
+					"TaxTripData_properties_typeProperties_userName": {
+						"value": "[parameters('TaxTripData_properties_typeProperties_userName')]"
+					},
+					"ADLSTripData_properties_typeProperties_url": {
+						"value": "[parameters('ADLSTripData_properties_typeProperties_url')]"
 					}
 				}
 			},
