@@ -17,6 +17,9 @@
 		"ADLSTripData_accountKey": {
 			"value": ""
 		},
+		"tripdata_ls_connectionString": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "myserver0987.database.windows.net"
 		},

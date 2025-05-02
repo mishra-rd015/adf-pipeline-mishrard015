@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSTripData'"
 		},
+		"tripdata_ls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'tripdata_ls'"
+		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "myserver0987.database.windows.net"
@@ -89,6 +93,9 @@
 					},
 					"ADLSTripData_accountKey": {
 						"value": "[parameters('ADLSTripData_accountKey')]"
+					},
+					"tripdata_ls_connectionString": {
+						"value": "[parameters('tripdata_ls_connectionString')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
